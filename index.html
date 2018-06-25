@@ -1,0 +1,57 @@
+<html ng-app="todoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>AngularJS - To Do List</title>
+</head>
+
+<body ng-controller="todoCtrl">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-7">
+                <h1 class="text-center font-weight-bold">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                    To Do List
+                </h1>
+                <hr>
+                <form ng-submit="sendTask()">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" name="task" ng-model="task" placeholder="Add a new Task" required>
+                    </div>
+                </form>
+                <div class="float-left">
+                    All Completed: {{taskCompleted}}
+                    <br> All Task: {{taskAll}}
+                </div>
+                <div class="float-right">
+                    <button type="button" class="btn btn-sm btn-success" ng-click="clearAllCompleted()">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Clear Completed </button>
+                    <button type="button" class="btn btn-sm btn-danger" ng-click="clearAllTask()">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i> Clear All</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center mt-5">
+            <div class="col col-lg-7">
+                <ul class="list-group" ng-repeat="task in taskList | orderBy:'$index':true">
+                    <li ng-class="{strike: task.completed}" ng-click="completeTask(task)" class="list-group-item d-flex justify-content-between align-items-center complete">
+                        <span> {{task.name}} </span>
+                        <a ng-click="deleteTask(task)">
+                            <i class="fa fa-times delete-btn"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

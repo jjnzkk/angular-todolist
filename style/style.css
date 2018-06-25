@@ -1,0 +1,38 @@
+body {
+    background: rgb(231, 231, 231);
+}
+
+h1 {
+    color: rgb(48, 114, 201);
+}
+
+.container {
+    margin-top: 50px;
+    padding: 50px 0 50px 0;
+    background: white;
+}
+
+.task-name {
+    padding-left: 15px;
+}
+
+.complete:hover,
+.complete:active {
+    cursor: pointer;
+    background: rgb(205, 255, 205);
+}
+
+.strike {
+    text-decoration: line-through;
+    color: lightgray;
+    background: rgb(205, 255, 205);
+}
+
+.delete-btn {
+    font-size: 20px;
+    color: rgb(255, 142, 142);
+}
+
+.delete-btn:hover {
+    color: rgb(255, 85, 85);
+}
